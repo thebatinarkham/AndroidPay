@@ -1,0 +1,33 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="args"
+            type="com.example.androidpay.data.models.UserData" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:orientation="vertical"
+        android:id="@+id/user_layoutContainer"
+        android:layout_margin="3dp">
+
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:imageUrl="@{args.image_url}"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@string/font_family_medium"
+            android:textSize="8sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

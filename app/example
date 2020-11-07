@@ -1,0 +1,26 @@
+<item android:width="2dp" android:height="2dp"
+    >
+<!-- inset - moves circle to the left-->
+<inset android:insetRight="-10dp">
+    <shape android:shape="oval"
+        android:thicknessRatio="1"
+        android:innerRadius="0dp"
+        android:useLevel="false"
+        >
+        <solid android:color="@color/design_default_color_primary" />
+    </shape>
+</inset>
+</item>
+<item android:width="2dp" android:height="2dp">
+<!-- inset - moves circle to the left-->
+<inset android:insetLeft="-10dp">
+    <shape android:shape="oval"
+        android:thicknessRatio="1"
+        android:innerRadius="0dp"
+        android:useLevel="false"
+        >
+
+        <solid android:color="@color/colorPrimary" />
+    </shape>
+</inset>
+</item>

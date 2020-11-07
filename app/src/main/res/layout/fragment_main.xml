@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="mSharedViewModel"
+            type="com.example.androidpay.fragments.SharedViewModel"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.main.MainFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/mainToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="bottom"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:scrimAnimationDuration="300">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/mainToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/colorWhite"
+                    app:layout_collapseMode="pin"
+                    android:navigationIcon="@drawable/ic_baseline_dehaze_24"
+                    app:navigationIcon="@drawable/ic_baseline_dehaze_24">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="24dp"
+                        android:gravity="center"
+                        android:text="PAY BILLS"
+                        android:textFontWeight="400"
+                        android:textSize="22sp"
+                        app:fontFamily="@string/font_family_regular" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lastTransactionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:fontFamily="@string/font_family_light"
+            android:text="Last transaction : "
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@id/mainToolbarLayout" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/LastTransactionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="₹"
+            android:textSize="16sp"
+            app:fontFamily="@string/font_family_monospace"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/transactionAmountTextView"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastTransactionText"
+            app:layout_constraintVertical_bias="0.02" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/transactionAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/font_family_regular"
+            android:text="2381"
+            android:textColor="@color/colorBlackAccent"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lastTransactionPay"
+            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastTransactionText"
+            app:layout_constraintVertical_bias="0.02" />
+
+        <Button
+            android:id="@+id/lastTransactionPay"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
+            android:text="Pay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastTransactionText"
+            android:clickable="false"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lastTransactionRequest"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:scrollbarDefaultDelayBeforeFade="00"
+            android:scrollbarFadeDuration="0"
+            android:scrollbarSize="0dp"
+            android:text="Request"
+            android:textColor="@color/colorBlackAccent"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastTransactionPay"
+            app:rippleColor="@android:color/transparent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="18dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_details_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionAmountTextView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/lastTransactionDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@string/font_family_thin"
+            android:text="Electricity Bill Pending 22/04/2019"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/transactionAmountTextView" />
+
+        <RelativeLayout
+            android:id="@+id/transactionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="28dp"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/lastTransactionDetails">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/amountText"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Amount"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="100dp"
+                android:layout_toEndOf="@+id/amountText"
+                android:layout_marginStart="16dp">
+
+                <ImageView
+                    android:id="@+id/selectedItemImage"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:id="@+id/expandRecycleViewImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_navigate_next_24"
+                    android:layout_marginStart="0dp"
+                    app:tint="@color/colorWhite" />
+
+                <ImageButton
+                    android:id="@+id/closeRecycleViewImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:layout_marginStart="0dp"
+                    app:tint="@color/colorWhite"
+                    android:visibility="gone"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewForUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/amountIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/amountText"
+                android:fontFamily="@string/font_family_thin"
+                android:text="₹"
+                android:textColor="@color/colorWhite"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/amountEditText"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@id/amountText"
+                android:layout_marginEnd="100dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:hint="0"
+                android:inputType="number"
+                android:maxLength="8"
+                android:paddingStart="12dp"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:textSize="44sp"
+                />
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="28dp"
+                android:text="Send"
+               android:textAlignment="viewStart"
+                android:textColor="@color/colorWhite"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                />
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="2dp"
+                android:layout_alignBottom="@+id/sendButton"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/border_bottom"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/requestButton"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_below="@+id/sendButton"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="14dp"
+                android:text="Request"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorWhite"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                />
+
+            <View
+                android:layout_width="90dp"
+                android:layout_height="2dp"
+                android:layout_alignBottom="@+id/requestButton"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/border_bottom" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/HistoryText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@string/font_family_light"
+            android:text="Payment History"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionLayout" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewForTransactionHistory"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/HistoryText"
+            android:clipToPadding="false"
+             />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

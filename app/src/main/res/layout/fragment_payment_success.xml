@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.paymentsend.result.PaymentSuccessFragment">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/AppTheme.AppBarOverlay"
+        >
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="bottom"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimAnimationDuration="300"
+            >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/paymenSuccessToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorWhite"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_baseline_navigate_before_24"
+
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Payment"
+                    android:textFontWeight="400"
+                    android:textSize="22sp"
+                    app:fontFamily="@string/font_family_regular"
+                    />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:text="@string/hello_blank_fragment"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            >
+            <TextView
+                android:id="@+id/paymentSuccessText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Successful!"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@string/font_family_regular"
+                android:textSize="18sp"
+                android:textFontWeight="600"
+                />
+            <TextView
+                android:id="@+id/transactionIdTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction ID: Asse134u8f"
+                android:layout_below="@id/paymentSuccessText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                />
+            <View
+                android:id="@+id/strokeBorderPaymentSuccess"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/border_stroke"
+                android:layout_below="@id/transactionIdTextView"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/strokeBorderPaymentSuccess"
+                android:layout_margin="16dp"
+                >
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/dateTextPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="300"
+                    android:text="Date"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/timeTextPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="300"
+                    android:text="Time"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/dateTextViewPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/dateTextPaymentSuccess"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="500"
+                    android:text="23 Aug 20"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/timeTextViewPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/timeTextPaymentSuccess"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="500"
+                    android:text="01:41 pm"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/toTextPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dateTextViewPaymentSuccess"
+                    android:fontFamily="@string/font_family_light"
+                    android:layout_marginTop="20dp"
+                    android:textSize="14sp"
+                    android:textFontWeight="300"
+                    android:text="To"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/userNameTextViewPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toTextPaymentSuccess"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+                    android:text="Robin William"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/bankNameTextViewPaymentSuccess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/userNameTextViewPaymentSuccess"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="500"
+                    android:textSize="14sp"
+                    android:text="Axis Bank xxxx 3240"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_baseline_check_circle_outline_24"
+                    android:layout_alignBottom="@id/userNameTextViewPaymentSuccess"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/colorPrimary"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/totalAmountPaidText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bankNameTextViewPaymentSuccess"
+                    android:layout_marginTop="20dp"
+                    android:text="Total amount paid:"
+                    android:fontFamily="@string/font_family_regular"
+                    android:textFontWeight="400"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/totalAmountTextIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="$"
+                    android:textSize="16sp"
+                    app:fontFamily="@string/font_family_monospace"
+                    android:layout_below="@id/totalAmountPaidText"
+                    android:textFontWeight="400"
+                    android:layout_marginTop="10dp"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/totalAmountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@string/font_family_regular"
+                    android:text="2381"
+                    android:textColor="@color/colorBlackAccent"
+                    android:textSize="28sp"
+                    android:layout_below="@id/totalAmountPaidText"
+                    android:layout_toRightOf="@id/totalAmountTextIcon"
+                    android:layout_marginTop="10dp"
+                    android:textFontWeight="500"
+                     />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@id/totalAmountTextView"
+                    android:src="@drawable/ic_baseline_arrow_downward_24"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/colorPrimary"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/navigateToMainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:layout_margin="16dp"
+        android:text="Done"
+        android:fontFamily="@string/font_family_light"
+        android:backgroundTint="@color/colorPrimary"
+        />
+</RelativeLayout>

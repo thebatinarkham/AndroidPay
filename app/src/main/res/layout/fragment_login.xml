@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="args"
+            type="com.example.androidpay.fragments.auth.loginuser.LoginFragmentArgs"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.paymentdetails.DetailsFragment">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/paymentLoginToolbarLayout"
+            style="@style/AppTheme.AppBarOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="bottom"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:scrimAnimationDuration="300">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/createUserToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/colorWhite"
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_baseline_navigate_before_24"
+                    >
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textFontWeight="400"
+                        android:textSize="22sp"
+                        app:fontFamily="@string/font_family_regular"
+                        android:layout_marginRight="24dp"
+                        android:text="Welcome"/>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/paymentLoginToolbarLayout"
+            android:padding="22dp">
+
+            <ImageView
+                android:id="@+id/userAvtarDetails"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/vector"
+                android:scaleType="centerCrop"
+                android:imageUrl="@{args.currentUser.image_url}"/>
+
+            <ImageButton
+                android:id="@+id/expandRecycleViewImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:src="@drawable/ic_baseline_navigate_next_24"
+                android:layout_toRightOf="@id/userAvtarDetails"
+                android:layout_marginStart="0dp"
+                app:tint="@color/colorWhite"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/userNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/expandRecycleViewImage"
+                android:layout_margin="3dp"
+                android:paddingLeft="12dp"
+                android:fontFamily="@string/font_family_medium"
+                android:text="@{ args.currentUser.title}"
+                android:background="@color/colorWhite"
+                android:textSize="16sp" />
+            <Button
+                android:id="@+id/changeUserNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_below="@+id/userNameText"
+                android:layout_toRightOf="@id/userAvtarDetails"
+                android:paddingLeft="12dp"
+                android:layout_margin="2dp"
+                android:fontFamily="@string/font_family_casual"
+                android:textSize="14dp"
+                android:text="Change User Name"
+                android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+                android:drawableTint="@color/colorPrimary"
+                android:clickable="false"
+                />
+
+            <EditText
+                android:id="@+id/emailAddressTextView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/changeUserNameText"
+                android:layout_marginTop="22dp"
+                style="@style/Widget.MaterialComponents.TextView"
+                android:hint="Enter Email Address"
+                android:layout_marginRight="22dp"
+                android:background="@color/colorWhite"
+                android:inputType="number"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:fontFamily="@string/font_family_thin"
+                android:drawableTint="@color/colorBlack"
+                android:text="@{args.currentUser.gmail_id}"
+                />
+
+            <LinearLayout
+                android:id="@+id/layoutView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/emailAddressTextView"
+                android:weightSum="2"
+                android:layout_marginTop="22dp">
+
+                <EditText
+                    android:id="@+id/userPhoneNumberTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:hint="Enter your mobile"
+                    android:layout_weight="2"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="24dp"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:maxLength="14"
+                    android:fontFamily="@string/font_family_thin"
+                    android:drawableRight="@drawable/ic_baseline_local_phone_24"
+                    android:text="@{args.currentUser.contact_number}"
+                    />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/requestDetailsText"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/layoutView"
+                android:layout_marginTop="22dp"
+                style="@style/Widget.MaterialComponents.TextView"
+                android:background="@color/colorWhite"
+                android:fontFamily="@string/font_family_thin"
+                android:singleLine="true"
+                android:maxLength="42"
+                android:hint="Request Details"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/loginUserButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:drawableTint="@color/colorWhite"
+            android:fontFamily="@string/font_family_light"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintVertical_bias="0.888"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:clickable="false"
+            android:text="Login"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
